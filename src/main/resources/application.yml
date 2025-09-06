@@ -1,0 +1,29 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: api-teste
+  datasource:
+    url: ${URL:jdbc:mysql://191.252.220.118:3306/db_teste?useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false}
+    username: ${USER:root}
+    password: ${PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimum-idle: 5           # Mantém sempre 5 conexões abertas no pool
+      maximum-pool-size: 10     # Limite máximo de conexões no pool
+      idle-timeout: 30000       # 30s - Conexões ociosas por mais de 30s podem ser fechadas
+      pool-name: HikariPool-1   # Nome do pool
+      max-lifetime: 300000      # 5 min - Conexões serão descartadas e renovadas após esse tempo
+      keepalive-time: 200000    # 3m20s - Pings periódicos para manter conexões ativas
+      connection-timeout: 30000 # 30s - Tempo máximo para esperar pegar uma conexão
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  spring-doc:
+    pathsToMatch: /api/**/v1/**
+  swagger-ui:
+    use-root-patch: true
