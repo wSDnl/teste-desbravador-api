@@ -5,8 +5,8 @@ spring:
     name: api-teste
   datasource:
     url: ${URL:jdbc:mysql://191.252.220.118:3306/db_teste?useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false}
-    username: ${USER:root}
-    password: ${PASSWORD:root}
+    username: ${USER:teste_desbravador}
+    password: ${PASSWORD:teste_desbravador}
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       minimum-idle: 5           # Mantém sempre 5 conexões abertas no pool
